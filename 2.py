@@ -33,6 +33,7 @@ texts = {
         "uploader_help": "Перетащите файл (.xlsx) сюда",
         "arrived": "➕ Прибывшие",
         "left": "➖ Выбывшие"
+        "support_list": "📋 Список учеников, нуждающихся в поддержке:"
     },
     "Қазақша": {
         "welcome": "Мониторинг жүйесіне қош келдіңіз!",
@@ -49,6 +50,7 @@ texts = {
         "uploader_help": "Файлды (.xlsx) осы жерге апарып тастаңыз",
         "arrived": "➕ Келгендер",
         "left": "➖ Кеткендер"
+        "support_list": "📋 Қолдауды қажет ететін оқушылар тізімі:"
     }
 }
 t = texts[lang]
@@ -124,7 +126,7 @@ if file_1 is not None and file_2 is not None:
         
         if not negative_dynamics.empty:
             st.warning(t["forecast_text"])
-            st.write("📋 Список учеников, нуждающихся в поддержке:")
+            st.write(t["support_list"]) # Теперь берем перевод из словаря
             for student, row in negative_dynamics.iterrows():
                 st.write(f"- **{student}**: {row['Разница']:+g} балла")
         else:
